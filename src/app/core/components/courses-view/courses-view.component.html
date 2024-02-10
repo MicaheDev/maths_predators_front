@@ -1,0 +1,13 @@
+<div>
+  <div *ngIf="!isLoading" class="flex items-center gap-10 p-[30px]">
+    <div
+      class="border border-neutral-600 w-[300px] h-[300px] rounded-md poiner-events-auto"
+      *ngFor="let part of parts"
+      (click)="navegate(part.path)"
+    >
+      <span>{{ part.name }}</span>
+      {{ part.path }}
+    </div>
+  </div>
+  <div *ngIf="isLoading">Cargando...</div>
+</div>
