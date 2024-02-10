@@ -23,7 +23,7 @@ export class FloatMenuComponent {
     },
     {
       name: 'miembros',
-      path: 'es/mebers',
+      path: 'es/members',
       icon: 'fa-solid fa-users-viewfinder',
     },
   ];

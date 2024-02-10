@@ -1,12 +1,19 @@
-<div>
+<div class="text-neutral-100">
   <div *ngIf="!isLoading" class="flex items-center gap-10 p-[30px]">
     <div
-      class="border border-neutral-600 w-[300px] h-[300px] rounded-md poiner-events-auto"
+      class="flex flex-col gap-2 border-4 rounded-md cursor-pointer border-neutral-600 bg-neutral-600 transition-colors hover:bg-neutral-500 hover:border-neutral-500"
       *ngFor="let part of parts"
       (click)="navegate(part.path)"
     >
-      <span>{{ part.name }}</span>
-      {{ part.path }}
+      <img
+        class=" w-[250px] h-[250px] rounded-md object-cover"
+        [src]="'data:image/png;base64,' + part.previewImage.content"
+        alt=""
+      />
+      <div class="p-2">
+        <h3 class="text-xl font-bold capitalize">{{ part.part }}</h3>
+      <h4 class="text-sm font-medium">{{ part.name }}</h4>
+      </div>
     </div>
   </div>
   <div *ngIf="isLoading">Cargando...</div>

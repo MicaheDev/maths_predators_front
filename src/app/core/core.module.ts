@@ -4,6 +4,7 @@ import { CoursesViewComponent } from './components/courses-view/courses-view.com
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CourseDetailViewComponent } from './components/course-detail-view/course-detail-view.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CourseDetailViewComponent } from './components/course-detail-view/cours
     CommonModule,
     HttpClientModule,
     RouterModule,
+    MarkdownModule.forRoot(),
   ],
   exports: [CoursesViewComponent]
 })
