@@ -38,7 +38,7 @@ export class CourseDetailViewComponent implements OnInit {
     });
   }
 
-  parseMarkdown(markdown: any){
-    return atob(markdown)
+  replace(property: any){
+    return property.replace(/ /g, "_").toLowerCase()
   }
 }

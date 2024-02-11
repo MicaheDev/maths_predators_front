@@ -1,20 +1,27 @@
-<div class="flex overflow-hidden h-[100svh]">
-  <div class="w-[50%] m-auto flex gap-2 p-[30px] text-neutral-700">
+<div class="flex h-[100svh] overflow-hidden">
+  <div class="m-auto flex w-[50%] gap-2 p-[30px] text-neutral-700">
     <div class="flex flex-col gap-8 text-lg">
       <markdown [data]="dataPart.description"></markdown>
       <a
         *ngFor="let subPart of dataPart.subParts"
-        class="p-2 border-2 border-neutral-700 cursor-pointer inline-flex items-center justify-center w-max rounded-md bg-red-200 gap-2 font-bold"
-        ><span
-          class="text-lg rounded-md bg-neutral-700 text-neutral-100 p-1 w-8 inline-flex justify-center items-center"
-          >{{ subPart.subPart }}</span
-        >
+        [routerLink]="replace(subPart.name)"
+        class="inline-flex w-max cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-neutral-700 p-2 font-bold"
+        [ngClass]="{
+          'bg-red-200': dataPart.color === 'red',
+          'bg-lime-200': dataPart.color === 'green'
+        }"
+      >
+        {{ dataPart.bgTW
+        }}<span
+          class="inline-flex w-8 items-center justify-center rounded-md bg-neutral-700 p-1 text-lg text-neutral-100"
+          >{{ subPart.subPart }}
+        </span>
         {{ subPart.name }}</a
       >
     </div>
   </div>
   <img
-    class="w-[50%] h-[100%]"
+    class="h-[100%] w-[50%]"
     [src]="'data:image/png;base64,' + dataPart.previewImage.content"
     alt=""
   />

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './shared/layouts/dashboard/dashboard.component';
 import { CoursesViewComponent } from './core/components/courses-view/courses-view.component';
 import { CourseDetailViewComponent } from './core/components/course-detail-view/course-detail-view.component';
+import { CourseContentViewComponent } from './core/components/course-content-view/course-content-view.component';
 
 const routes: Routes = [{
   path: "",
@@ -15,6 +16,10 @@ const routes: Routes = [{
     {
       path: "es/contents/:part",
       component: CourseDetailViewComponent
+    },
+    {
+      path: "es/contents/:part/:subPart",
+      component: CourseContentViewComponent
     }
   ]
 }];

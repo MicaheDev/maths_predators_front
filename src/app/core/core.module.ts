@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CourseDetailViewComponent } from './components/course-detail-view/course-detail-view.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { CourseContentViewComponent } from './components/course-content-view/course-content-view.component';
 
 @NgModule({
   declarations: [
     CoursesViewComponent,
-    CourseDetailViewComponent
+    CourseDetailViewComponent,
+    CourseContentViewComponent
   ],
   imports: [
     CommonModule,
