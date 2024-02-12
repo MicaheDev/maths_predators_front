@@ -4,7 +4,7 @@
       (click)="changeDropDownState()"
       class="flex h-[40px] items-center rounded-md bg-neutral-700 px-4 text-neutral-100 transition-colors hover:bg-neutral-600"
     >
-      {{ label }}
+      {{ checkLanguage() }}
       <span class="pl-4">
         <svg
           width="10"
@@ -32,7 +32,7 @@
         *ngFor="let option of dropDownItems"
         [routerLink]="option?.path"
         (click)="(option?.action)"
-        class="block px-5 py-2 text-neutral-800 transition-colors hover:bg-neutral-200"
+        class="block px-5 py-2 text-neutral-700 transition-colors hover:bg-neutral-200"
       >
         {{ option.name }}
       </a>

@@ -26,7 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "src/prism.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
               "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss"
             ],
             "scripts": [

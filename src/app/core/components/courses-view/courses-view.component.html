@@ -1,20 +1,28 @@
-<div class="text-neutral-100">
-  <div *ngIf="!isLoading" class="flex items-center gap-10 p-[30px]">
-    <div
-      class="flex cursor-pointer flex-col gap-2 rounded-md border-4 border-neutral-600 bg-neutral-600 transition-colors hover:border-neutral-500 hover:bg-neutral-500"
-      *ngFor="let part of parts"
-      (click)="navegate(part.path)"
-    >
-      <img
-        class="h-[250px] w-[250px] rounded-md object-cover"
-        [src]="'data:image/png;base64,' + part.previewImage.content"
-        alt=""
-      />
-      <div class="p-2">
-        <h3 class="text-xl font-bold capitalize">{{ part.part }}</h3>
-        <h4 class="text-sm font-medium">{{ part.name }}</h4>
+<section class="min-h-[90svh] bg-neutral-200 text-neutral-100">
+  <div class="m-auto w-[90%] max-w-[1300px] px-4 py-10">
+    <h1 class="text-6xl font-bold text-neutral-700">Contenido del Curso</h1>
+    <div *ngIf="!isLoading" class="flex items-center gap-10 p-[30px]">
+      <div
+        class="flex cursor-pointer flex-col gap-2 rounded-md border-4 border-neutral-600 bg-neutral-600 transition-colors hover:border-neutral-500 hover:bg-neutral-500"
+        *ngFor="let part of parts"
+        (click)="navegate(part?.path)"
+      >
+        <img
+          class="h-[250px] w-[250px] rounded-md object-cover "
+          [src]="'data:image/png;base64,' + part?.previewImage?.content"
+          alt=""
+        />
+        <div class="p-2">
+          <h3 class="text-xl font-bold capitalize">{{ part?.part }}</h3>
+          <h4 class="text-sm font-medium">{{ part?.name }}</h4>
+        </div>
       </div>
     </div>
+    <div
+      *ngIf="isLoading"
+      class="m-auto flex h-[80svh] w-full items-center justify-center text-neutral-700"
+    >
+      <h1 class="text-2xl font-bold">Cargando Contenido...</h1>
+    </div>
   </div>
-  <div *ngIf="isLoading">Cargando...</div>
-</div>
+</section>

@@ -1,3 +1,30 @@
-<div *ngFor="let subPart of dataSubPart.contents">
-<div *ngIf="subPart"><markdown [data]="subPart.content"></markdown></div>
-</div>
+<section class="relative m-auto flex max-w-[1300px] overflow-hidden">
+  <app-sidebar>
+    <div
+      *ngFor="let subPart of dataPart?.subParts"
+      class="flex flex-col gap-2 rounded-md px-4 py-2"
+      [ngClass]="{
+        'bg-red-200 hover:bg-red-300': dataPart.color === 'red',
+        'bg-lime-200 hover:bg-lime-300': dataPart.color === 'green'
+      }"
+    >
+      <h2 class="font-bold">{{ subPart.name }}</h2>
+      <ol>
+        <li *ngFor="let content of subPart?.contents">
+          - {{ content?.title }}
+        </li>
+      </ol>
+    </div>
+  </app-sidebar>
+  <div class="ml-[250px]"></div>
+  <div class="m-auto w-max flex-1 overflow-x-hidden p-4">
+    <div *ngFor="let subPart of dataSubPart?.contents">
+      <div
+        class="flex w-[100%] w-max whitespace-pre text-pretty text-lg"
+        *ngIf="subPart"
+      >
+        <markdown [data]="subPart?.content"></markdown>
+      </div>
+    </div>
+  </div>
+</section>

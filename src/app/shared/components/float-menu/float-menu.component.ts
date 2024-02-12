@@ -7,23 +7,28 @@ import { Component } from '@angular/core';
 export class FloatMenuComponent {
   menuItems = [
     {
+      name: 'inicio',
+      path: '',
+      icon: 'fa-solid fa-house',
+    },
+    {
       name: 'acerca',
-      path: 'es/about',
+      path: 'about',
       icon: 'fa-solid fa-hand-holding-heart',
     },
     {
       name: 'contenido',
-      path: 'es/contents',
+      path: 'contents',
       icon: 'fa-solid fa-square-root-variable',
     },
     {
       name: 'preguntas frecuentes',
-      path: 'es/faq',
+      path: 'faq',
       icon: 'fa-regular fa-circle-question',
     },
     {
       name: 'miembros',
-      path: 'es/members',
+      path: 'members',
       icon: 'fa-solid fa-users-viewfinder',
     },
   ];

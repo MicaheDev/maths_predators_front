@@ -14,6 +14,7 @@ export class CourseContentViewComponent {
   partParam!: string;
   subPartParam!: string;
   safeMarkdownContent: any;
+  dataPart!: any;
 
   constructor(
     public http: HttpClient,
@@ -25,6 +26,18 @@ export class CourseContentViewComponent {
     this.route.params.subscribe((params) => {
       this.partParam = params['part'];
       this.subPartParam = params['subPart'];
+
+      this.http.get<any[]>(`${this.baseUrl}/${this.partParam}`).subscribe(
+        (data) => {
+          this.dataPart = data;
+        },
+        (error) => {
+          console.log('Error fetching data from GitHub API:', error);
+        },
+        () => {
+          this.isLoading = false;
+        },
+      );
 
       this.http
         .get<any[]>(`${this.baseUrl}/${this.partParam}/${this.subPartParam}`)

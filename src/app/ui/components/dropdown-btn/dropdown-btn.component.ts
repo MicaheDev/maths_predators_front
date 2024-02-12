@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 type DropDownItems = {
   path?: string;
@@ -12,10 +13,31 @@ type DropDownItems = {
   templateUrl: './dropdown-btn.component.html',
   styleUrls: ['./dropdown-btn.component.scss'],
 })
-export class DropdownBtnComponent {
+export class DropdownBtnComponent implements OnInit {
   dropDownOpen: boolean = false;
   @Input() dropDownItems: DropDownItems[] = [];
-  @Input() label!: string 
+  language!: string;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.language = params['lang'];
+    });
+  }
+
+  checkLanguage() {
+    switch (this.language) {
+      case 'es':
+        return 'Español';
+        break;
+      case 'en':
+        return 'Ingles';
+        break;
+      default:
+        return 'Español';
+    }
+  }
 
   changeDropDownState() {
     this.dropDownOpen = !this.dropDownOpen;

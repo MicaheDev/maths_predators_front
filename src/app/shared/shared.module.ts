@@ -6,6 +6,7 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { FloatMenuComponent } from './components/float-menu/float-menu.component';
 import { UiModule } from '../ui/ui.module';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import { UiModule } from '../ui/ui.module';
     FooterComponent,
     DashboardComponent,
     FloatMenuComponent,
+    SidebarComponent,
   ],
   imports: [CommonModule, RouterModule, UiModule],
-  exports: [DashboardComponent],
+  exports: [DashboardComponent, SidebarComponent],
 })
 export class SharedModule {}

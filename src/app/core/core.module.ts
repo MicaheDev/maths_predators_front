@@ -6,17 +6,19 @@ import { RouterModule } from '@angular/router';
 import { CourseDetailViewComponent } from './components/course-detail-view/course-detail-view.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { CourseContentViewComponent } from './components/course-content-view/course-content-view.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     CoursesViewComponent,
     CourseDetailViewComponent,
-    CourseContentViewComponent
+    CourseContentViewComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
+    SharedModule,
     MarkdownModule.forRoot(),
   ],
   exports: [CoursesViewComponent]
