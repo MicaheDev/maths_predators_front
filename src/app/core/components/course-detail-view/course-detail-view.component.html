@@ -1,14 +1,14 @@
 <div class="m-auto flex h-[100svh] w-[90%] max-w-[1300px] overflow-hidden">
   <div class="m-auto flex w-[50%] gap-2 p-[30px] text-neutral-700">
     <div class="flex flex-col gap-8 text-sm">
-      <markdown [data]="dataPart?.description"></markdown>
+      <markdown katex>{{dataPart?.description}}</markdown>
       <a
         *ngFor="let subPart of dataPart?.subParts"
         [routerLink]="replace(subPart?.name)"
         class="inline-flex w-max cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-neutral-700 p-2 text-sm font-bold transition-colors"
         [ngClass]="{
-          'bg-red-200 hover:bg-red-300': dataPart.color === 'red',
-          'bg-lime-200 hover:bg-lime-300': dataPart.color === 'green'
+          'bg-red-200 hover:bg-red-300': dataPart?.color === 'red',
+          'bg-lime-200 hover:bg-lime-300': dataPart?.color === 'green'
         }"
       >
         <span

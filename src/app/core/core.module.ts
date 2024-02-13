@@ -4,9 +4,9 @@ import { CoursesViewComponent } from './components/courses-view/courses-view.com
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CourseDetailViewComponent } from './components/course-detail-view/course-detail-view.component';
-import { MarkdownModule } from 'ngx-markdown';
 import { CourseContentViewComponent } from './components/course-content-view/course-content-view.component';
 import { SharedModule } from '../shared/shared.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     RouterModule,
     SharedModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot()
   ],
   exports: [CoursesViewComponent]
 })
