@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, forkJoin, mergeMap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,10 @@ export class CoursesViewComponent implements OnInit {
   parts: any[] = [];
   isLoading: boolean = false;
 
-  constructor(public http: HttpClient, public router: Router) {}
+  constructor(
+    public http: HttpClient,
+    public router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -27,11 +30,11 @@ export class CoursesViewComponent implements OnInit {
       },
       () => {
         this.isLoading = false;
-      }
+      },
     );
   }
 
-  navegate(route: string): void {
-    this.router.navigate([route], { replaceUrl: true });
+  navegate(url: string){
+    this.router.navigateByUrl(url);
   }
 }

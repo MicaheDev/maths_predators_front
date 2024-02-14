@@ -10,11 +10,13 @@ export class CourseContentViewComponent {
   markdownContent!: string;
   baseUrl = `http://localhost:8000/api/courses`;
   dataSubPart!: any;
-  isLoading: boolean = false;
   partParam!: string;
   subPartParam!: string;
   safeMarkdownContent: any;
   dataPart!: any;
+
+  isPartLoading: boolean = false;
+  isSubPartLoading: boolean = false;
 
   constructor(
     public http: HttpClient,
@@ -26,6 +28,8 @@ export class CourseContentViewComponent {
     this.route.params.subscribe((params) => {
       this.partParam = params['part'];
       this.subPartParam = params['subPart'];
+      this.isPartLoading = true;
+      this.isSubPartLoading = true;
 
       this.http.get<any[]>(`${this.baseUrl}/${this.partParam}`).subscribe(
         (data) => {
@@ -35,7 +39,7 @@ export class CourseContentViewComponent {
           console.log('Error fetching data from GitHub API:', error);
         },
         () => {
-          this.isLoading = false;
+          this.isPartLoading = false;
         },
       );
 
@@ -49,9 +53,13 @@ export class CourseContentViewComponent {
             console.log('Error fetching data from GitHub API:', error);
           },
           () => {
-            this.isLoading = false;
+            this.isSubPartLoading = false;
           },
         );
     });
+  }
+
+  navegate(url: string) {
+    this.router.navigateByUrl(url);
   }
 }

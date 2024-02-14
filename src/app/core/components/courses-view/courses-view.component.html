@@ -1,4 +1,4 @@
-<section class="min-h-[90svh] bg-neutral-200 text-neutral-100">
+<section class="h-[90svh] bg-neutral-200 text-neutral-100">
   <div class="m-auto w-[90%] max-w-[1300px] px-4 py-10">
     <h1 class="text-6xl font-bold text-neutral-700">Contenido del Curso</h1>
     <div *ngIf="!isLoading" class="flex items-center gap-10 p-[30px]">
@@ -8,7 +8,7 @@
         (click)="navegate(part?.path)"
       >
         <img
-          class="h-[250px] w-[250px] rounded-md object-cover "
+          class="h-[250px] w-[250px] rounded-md object-cover"
           [src]="'data:image/png;base64,' + part?.previewImage?.content"
           alt=""
         />
@@ -18,11 +18,6 @@
         </div>
       </div>
     </div>
-    <div
-      *ngIf="isLoading"
-      class="m-auto flex h-[80svh] w-full items-center justify-center text-neutral-700"
-    >
-      <h1 class="text-2xl font-bold">Cargando Contenido...</h1>
-    </div>
+    <app-loader [isLoading]="isLoading" />
   </div>
 </section>

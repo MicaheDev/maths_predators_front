@@ -23,6 +23,7 @@ export class CourseDetailViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.partParam = params['part'];
+      this.isLoading = true
 
       this.http.get<any[]>(`${this.baseUrl}/${this.partParam}`).subscribe(
         (data) => {

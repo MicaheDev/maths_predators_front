@@ -1,25 +1,39 @@
-<section class="relative m-auto flex w-[90%] max-w-[1300px] overflow-hidden">
+<section
+  *ngIf="!isPartLoading || !isSubPartLoading"
+  class="relative m-auto flex w-[90%] max-w-[1300px] overflow-hidden"
+>
   <app-sidebar>
     <div
       *ngFor="let subPart of dataPart?.subParts"
       class="flex flex-col gap-2 rounded-md px-4 py-2"
-      [ngClass]="{
-        'bg-red-200 hover:bg-red-300': dataPart?.color === 'red',
-        'bg-lime-200 hover:bg-lime-300': dataPart?.color === 'green'
-      }"
     >
-      <h2 class="font-bold">{{ subPart.name }}</h2>
-      <ol>
-        <li *ngFor="let content of subPart?.contents">
-          - {{ content?.title }}
-        </li>
-      </ol>
+      <h4
+        class="rounded-md p-4 font-bold transition-colors"
+        [ngClass]="{
+          'bg-red-200 hover:bg-red-300': dataPart?.color === 'red',
+          'bg-lime-200 hover:bg-lime-300': dataPart?.color === 'green'
+        }"
+      >
+        {{ subPart.name }}
+      </h4>
+      <a
+        class="rounded-md p-2 transition-colors"
+        [ngClass]="{
+          'bg-red-100 hover:bg-red-200': dataPart?.color === 'red',
+          'bg-lime-100 hover:bg-lime-200': dataPart?.color === 'green'
+        }"
+        [href]="content?.path"
+        *ngFor="let content of subPart?.contents"
+      >
+        {{ content?.title }}
+      </a>
     </div>
   </app-sidebar>
   <div class="ml-[250px]"></div>
   <div class="m-auto flex-1 overflow-x-hidden px-4 py-8">
     <div *ngFor="let subPart of dataSubPart?.contents">
       <div
+        [id]="subPart?.id"
         class="flex w-[100%] whitespace-pre text-pretty text-sm text-neutral-700"
         *ngIf="subPart"
       >
@@ -28,3 +42,4 @@
     </div>
   </div>
 </section>
+<app-loader [isLoading]="isSubPartLoading || isPartLoading" />
