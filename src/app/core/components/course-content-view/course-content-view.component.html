@@ -1,4 +1,4 @@
-<section class="relative m-auto flex max-w-[1300px] overflow-hidden">
+<section class="relative m-auto flex w-[90%] max-w-[1300px] overflow-hidden">
   <app-sidebar>
     <div
       *ngFor="let subPart of dataPart?.subParts"
@@ -17,7 +17,7 @@
     </div>
   </app-sidebar>
   <div class="ml-[250px]"></div>
-  <div class="m-auto w-max flex-1 overflow-x-hidden py-8 px-4">
+  <div class="m-auto flex-1 overflow-x-hidden px-4 py-8">
     <div *ngFor="let subPart of dataSubPart?.contents">
       <div
         class="flex w-[100%] whitespace-pre text-pretty text-sm text-neutral-700"

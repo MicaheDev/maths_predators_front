@@ -5,6 +5,7 @@ import { CoreModule } from '../core/core.module';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { MembersPageComponent } from './members-page/members-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,6 @@ import { AboutPageComponent } from './about-page/about-page.component';
     MembersPageComponent,
     AboutPageComponent,
   ],
-  imports: [CommonModule, CoreModule],
+  imports: [CommonModule, CoreModule, RouterModule],
 })
 export class PagesModule {}

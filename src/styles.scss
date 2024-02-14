@@ -19,5 +19,19 @@ markdown {
     font-size: 16px;
     font-weight: 600;
   }
+}
 
+* {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #171717;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+  }
 }
