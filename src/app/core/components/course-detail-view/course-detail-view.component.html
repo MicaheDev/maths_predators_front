@@ -34,5 +34,7 @@
       />
     </div>
   </div>
-  <app-loader [isLoading]="isLoading" />
+  <div *ngIf="isLoading" class="flex h-full w-full items-center justify-center">
+    <app-loader customStyles="--path: #404040; --dot: #404040;" />
+  </div>
 </section>

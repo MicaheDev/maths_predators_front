@@ -42,4 +42,9 @@
     </div>
   </div>
 </section>
-<app-loader [isLoading]="isSubPartLoading || isPartLoading" />
+<div
+  *ngIf="isSubPartLoading || isPartLoading"
+  class="flex h-full min-h-[90svh] w-full items-center justify-center overflow-hidden"
+>
+  <app-loader customStyles="--path: #404040; --dot: #404040;" />
+</div>

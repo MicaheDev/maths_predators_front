@@ -1,23 +1,39 @@
-<section class="h-[90svh] bg-neutral-200 text-neutral-100">
-  <div class="m-auto w-[90%] max-w-[1300px] px-4 py-10">
-    <h1 class="text-6xl font-bold text-neutral-700">Contenido del Curso</h1>
-    <div *ngIf="!isLoading" class="flex items-center gap-10 p-[30px]">
+<section class="h-[90svh] overflow-hidden bg-neutral-800 text-neutral-100">
+  <div class="h-full w-full">
+    <div *ngIf="!isLoading" class="flex h-full flex-wrap">
       <div
-        class="flex cursor-pointer flex-col gap-2 rounded-md border-4 border-neutral-600 bg-neutral-600 transition-colors hover:border-neutral-500 hover:bg-neutral-500"
+        class="group relative flex h-full cursor-pointer flex-col gap-2"
+        [ngClass]="{
+          'bg-red-200': part?.color === 'red',
+          'bg-lime-200': part?.color === 'green'
+        }"
         *ngFor="let part of parts"
         (click)="navegate(part?.path)"
       >
         <img
-          class="h-[300px] w-[300px] rounded-md object-cover"
+          class="h-full w-[300px] rounded-md object-contain transition-all group-hover:w-[350px]"
           [src]="'data:image/png;base64,' + part?.previewImage?.content"
           alt=""
         />
-        <div class="p-2">
-          <h3 class="text-xl font-bold capitalize">{{ part?.part }}</h3>
-          <h4 class="text-sm font-medium">{{ part?.name }}</h4>
+        <div
+          class="invisible absolute top-0 h-full w-full bg-neutral-700 bg-opacity-30 transition-all group-hover:visible"
+        >
+          <div class="relative h-full w-full">
+            <div
+              class="absolute bottom-[-400px] w-full bg-neutral-600 p-8 transition-all group-hover:bottom-0"
+            >
+              <h3 class="text-xl font-bold capitalize">{{ part?.part }}</h3>
+              <h4 class="text-sm font-medium">{{ part?.name }}</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <app-loader [isLoading]="isLoading" />
+    <div
+      *ngIf="isLoading"
+      class="flex h-full w-full items-center justify-center"
+    >
+      <app-loader customStyles="--path: #fafafa; --dot: #fafafa;" />
+    </div>
   </div>
 </section>
