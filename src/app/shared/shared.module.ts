@@ -8,6 +8,7 @@ import { FloatMenuComponent } from './components/float-menu/float-menu.component
 import { UiModule } from '../ui/ui.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     SidebarComponent,
     LoaderComponent,
   ],
-  imports: [CommonModule, RouterModule, UiModule],
+  imports: [CommonModule, RouterModule, UiModule, ReactiveFormsModule],
   exports: [DashboardComponent, SidebarComponent, LoaderComponent],
 })
 export class SharedModule {}

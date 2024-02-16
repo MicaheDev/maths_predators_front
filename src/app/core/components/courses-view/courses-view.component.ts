@@ -34,7 +34,7 @@ export class CoursesViewComponent implements OnInit {
     );
   }
 
-  navegate(url: string){
+  navegate(url: string) {
     this.router.navigateByUrl(url);
   }
 }
