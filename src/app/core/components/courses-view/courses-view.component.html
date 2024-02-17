@@ -2,11 +2,7 @@
   <div class="h-full w-full">
     <div *ngIf="!isLoading" class="flex h-full flex-wrap">
       <div
-        class="group relative flex h-full cursor-pointer flex-col gap-2"
-        [ngClass]="{
-          'bg-red-200': part?.color === 'red',
-          'bg-lime-200': part?.color === 'green'
-        }"
+        class="group relative flex h-full cursor-pointer flex-col gap-2 border-2 border-neutral-800 bg-neutral-200"
         *ngFor="let part of parts"
         (click)="navegate(part?.path)"
       >
@@ -16,7 +12,7 @@
           alt=""
         />
         <div
-          class="invisible absolute top-0 h-full w-full bg-neutral-700 bg-opacity-30 transition-all group-hover:visible"
+          class="invisible absolute top-0 opacity-0 h-full w-full bg-neutral-700 bg-opacity-30 transition-all group-hover:visible group-hover:opacity-100"
         >
           <div class="relative h-full w-full">
             <div

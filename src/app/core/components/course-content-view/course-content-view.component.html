@@ -8,20 +8,12 @@
       class="flex flex-col gap-2 rounded-md px-4 py-2"
     >
       <h4
-        class="rounded-md p-4 font-bold transition-colors"
-        [ngClass]="{
-          'bg-red-200 hover:bg-red-300': dataPart?.color === 'red',
-          'bg-lime-200 hover:bg-lime-300': dataPart?.color === 'green'
-        }"
+        class="rounded-md bg-neutral-700 p-4 font-bold text-neutral-100 transition-colors hover:bg-neutral-600"
       >
         {{ subPart.name }}
       </h4>
       <a
-        class="rounded-md p-2 transition-colors"
-        [ngClass]="{
-          'bg-red-100 hover:bg-red-200': dataPart?.color === 'red',
-          'bg-lime-100 hover:bg-lime-200': dataPart?.color === 'green'
-        }"
+        class="rounded-md bg-neutral-600 p-2 text-neutral-100 transition-colors hover:bg-neutral-500"
         [href]="content?.path"
         *ngFor="let content of subPart?.contents"
       >

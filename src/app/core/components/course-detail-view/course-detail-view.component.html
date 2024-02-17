@@ -6,11 +6,7 @@
         <a
           *ngFor="let subPart of dataPart?.subParts"
           [routerLink]="replace(subPart?.name)"
-          class="inline-flex w-max cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-neutral-700 p-2 text-sm font-bold transition-colors"
-          [ngClass]="{
-            'bg-red-200 hover:bg-red-300': dataPart?.color === 'red',
-            'bg-lime-200 hover:bg-lime-300': dataPart?.color === 'green'
-          }"
+          class="inline-flex w-max cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-neutral-700 p-2 text-sm font-bold transition-colors bg-neutral-100 hover:bg-neutral-200"
         >
           <span
             class="inline-flex w-8 items-center justify-center rounded-md bg-neutral-700 p-1 text-sm text-neutral-100"
@@ -20,13 +16,7 @@
         >
       </div>
     </div>
-    <div
-      class="flex items-center justify-center"
-      [ngClass]="{
-        'bg-red-200': dataPart.color === 'red',
-        'bg-lime-200': dataPart.color === 'green'
-      }"
-    >
+    <div class="flex items-center justify-center bg-neutral-300 rounded-md m-4">
       <img
         class="object-contain"
         [src]="'data:image/png;base64,' + dataPart?.previewImage?.content"
