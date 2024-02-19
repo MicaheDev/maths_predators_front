@@ -45,6 +45,11 @@ const routes: Routes = [
         title: 'Contenido del curso',
       },
       {
+        path: 'contents/:part/:subPart/:contentPart',
+        component: CourseContentViewComponent,
+        title: 'Contenido del curso',
+      },
+      {
         path: 'faq',
         component: FaqPageComponent,
         title: 'Preguntas y respuestas',

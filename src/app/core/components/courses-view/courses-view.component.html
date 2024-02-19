@@ -2,9 +2,14 @@
   <div class="h-full w-full">
     <div *ngIf="!isLoading" class="flex h-full flex-wrap">
       <div
-        class="group relative flex h-full cursor-pointer flex-col gap-2 border-2 border-neutral-800 bg-neutral-200"
+        class="group relative flex h-full cursor-pointer flex-col gap-2 border-2 border-neutral-800 bg-neutral-50"
         *ngFor="let part of parts"
         (click)="navegate(part?.path)"
+        [ngClass]="{
+          'hover:bg-red-200': part?.color === 'red',
+          'hover:bg-blue-200': part?.color === 'blue',
+          'hover:bg-lime-200': part?.color === 'green'
+        }"
       >
         <img
           class="h-full w-[300px] rounded-md object-contain transition-all group-hover:w-[350px]"
@@ -12,7 +17,7 @@
           alt=""
         />
         <div
-          class="invisible absolute top-0 opacity-0 h-full w-full bg-neutral-700 bg-opacity-30 transition-all group-hover:visible group-hover:opacity-100"
+          class="invisible absolute top-0 h-full w-full bg-neutral-700 bg-opacity-10 opacity-0 transition-all group-hover:visible group-hover:opacity-100"
         >
           <div class="relative h-full w-full">
             <div
@@ -29,7 +34,7 @@
       *ngIf="isLoading"
       class="flex h-full w-full items-center justify-center"
     >
-      <app-loader customStyles="--path: #fafafa; --dot: #fafafa;" />
+      <app-loader customStyles="background: #fafafa;" />
     </div>
   </div>
 </section>

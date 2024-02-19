@@ -12,6 +12,7 @@ export class CourseContentViewComponent {
   dataSubPart!: any;
   partParam!: string;
   subPartParam!: string;
+  contentParam!: string
   safeMarkdownContent: any;
   dataPart!: any;
 
@@ -28,6 +29,7 @@ export class CourseContentViewComponent {
     this.route.params.subscribe((params) => {
       this.partParam = params['part'];
       this.subPartParam = params['subPart'];
+      this.contentParam = params['contentPart'];
       this.isPartLoading = true;
       this.isSubPartLoading = true;
 
@@ -44,7 +46,7 @@ export class CourseContentViewComponent {
       );
 
       this.http
-        .get<any[]>(`${this.baseUrl}/${this.partParam}/${this.subPartParam}`)
+        .get<any[]>(`${this.baseUrl}/${this.partParam}/${this.subPartParam}/${this.contentParam}`)
         .subscribe(
           (data) => {
             this.dataSubPart = data;

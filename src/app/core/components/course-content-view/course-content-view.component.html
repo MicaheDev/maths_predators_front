@@ -5,31 +5,35 @@
   <app-sidebar>
     <div
       *ngFor="let subPart of dataPart?.subParts"
-      class="flex flex-col gap-2 rounded-md px-4 py-2"
+      class="flex flex-col gap-2 rounded-md bg-neutral-700 p-2"
     >
       <h4
-        class="rounded-md bg-neutral-700 p-4 font-bold text-neutral-100 transition-colors hover:bg-neutral-600"
+        class="rounded-md p-4 font-bold text-neutral-100 transition-colors hover:bg-neutral-600"
       >
         {{ subPart.name }}
       </h4>
       <a
-        class="rounded-md bg-neutral-600 p-2 text-neutral-100 transition-colors hover:bg-neutral-500"
+        class="rounded-md px-6 py-2 text-neutral-100 transition-colors hover:bg-neutral-500"
         [href]="content?.path"
-        *ngFor="let content of subPart?.contents"
+        *ngFor="let content of subPart?.contents; let index = index"
       >
-        {{ content?.title }}
+        {{ index + 1 }} - {{ content?.title }}
       </a>
     </div>
   </app-sidebar>
   <div class="ml-[250px]"></div>
-  <div class="m-auto flex-1 overflow-x-hidden px-4 py-8">
-    <div *ngFor="let subPart of dataSubPart?.contents">
+  <div
+    class="m-auto my-8 flex-1 overflow-x-hidden rounded-md border-2 border-neutral-700 bg-neutral-50"
+  >
+    <div class="flex flex-col gap-4" *ngIf="dataSubPart">
+      <h1 class="bg-neutral-700 px-4 py-2 text-2xl font-black text-neutral-100">
+        {{ dataSubPart?.title }}
+      </h1>
       <div
-        [id]="subPart?.id"
-        class="flex w-[100%] whitespace-pre text-pretty text-sm text-neutral-700"
-        *ngIf="subPart"
+        class="flex w-[100%] whitespace-pre text-pretty p-4 text-sm text-neutral-700"
+        *ngIf="dataSubPart"
       >
-        <markdown katex [data]="subPart?.content"> </markdown>
+        <markdown katex [data]="dataSubPart?.content"> </markdown>
       </div>
     </div>
   </div>
@@ -38,5 +42,5 @@
   *ngIf="isSubPartLoading || isPartLoading"
   class="flex h-full min-h-[90svh] w-full items-center justify-center overflow-hidden"
 >
-  <app-loader customStyles="--path: #404040; --dot: #404040;" />
+  <app-loader customStyles="background: #404040;" />
 </div>

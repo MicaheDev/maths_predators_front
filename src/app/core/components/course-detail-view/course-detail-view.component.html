@@ -2,21 +2,31 @@
   <div *ngIf="!isLoading" class="m-auto flex h-[100%]">
     <div class="m-auto flex w-[50%] gap-2 p-[30px] text-neutral-700">
       <div class="flex flex-col gap-8 text-sm">
+        <h1 class="text-4xl font-black">{{ dataPart?.name }}</h1>
         <markdown katex>{{ dataPart?.description }}</markdown>
         <a
           *ngFor="let subPart of dataPart?.subParts"
-          [routerLink]="replace(subPart?.name)"
-          class="inline-flex w-max cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-neutral-700 p-2 text-sm font-bold transition-colors bg-neutral-100 hover:bg-neutral-200"
+          [routerLink]="
+            replace(subPart?.name + '/' + subPart?.contents[0].title)
+          "
+          class="inline-flex w-max cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent p-2 text-sm font-bold transition-colors hover:border-neutral-700"
         >
           <span
-            class="inline-flex w-8 items-center justify-center rounded-md bg-neutral-700 p-1 text-sm text-neutral-100"
+            class="inline-flex w-8 h-8 uppercase items-center justify-center rounded-full bg-neutral-700 p-1 text-sm text-neutral-100"
             >{{ subPart?.subPart }}
           </span>
           {{ subPart?.name }}</a
         >
       </div>
     </div>
-    <div class="flex items-center justify-center bg-neutral-300 rounded-md m-4">
+    <div
+      class="m-4 flex items-center justify-center rounded-md bg-gradient-to-b to-transparent"
+      [ngClass]="{
+        'from-red-200': dataPart?.color === 'red',
+        'from-blue-200': dataPart?.color === 'blue',
+        'from-lime-200': dataPart?.color === 'green'
+      }"
+    >
       <img
         class="object-contain"
         [src]="'data:image/png;base64,' + dataPart?.previewImage?.content"
@@ -25,6 +35,6 @@
     </div>
   </div>
   <div *ngIf="isLoading" class="flex h-full w-full items-center justify-center">
-    <app-loader customStyles="--path: #404040; --dot: #404040;" />
+    <app-loader customStyles="background: #404040;" />
   </div>
 </section>
