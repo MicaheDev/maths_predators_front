@@ -1,6 +1,6 @@
-# MathsCourses - Plataforma de Cursos de Matemáticas desde Cero
+# MathsPredators - Plataforma de Cursos de Matemáticas desde Cero
 
-![Vista detallada del Curso en MathsCourses](./mockup.png)
+![Vista detallada del Curso en MathsPredators](./mockup.png)
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 16.2.10 y utiliza Tailwind CSS para el diseño.
 
