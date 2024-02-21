@@ -25,6 +25,16 @@ export class CourseContentViewComponent {
     private route: ActivatedRoute,
   ) {}
 
+  isActive(path: string | null): boolean {
+    // Obtener la URL actual
+    const currentUrl = this.router.url;
+    console.log('/' + path, currentUrl)
+
+
+    // Verificar si la URL actual coincide con la ruta específica
+    return currentUrl ===  '/' + path;
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.partParam = params['part'];

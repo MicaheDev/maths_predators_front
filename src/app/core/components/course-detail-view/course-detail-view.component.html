@@ -4,7 +4,8 @@
       <div class="flex flex-col gap-8 text-sm">
         <h1 class="text-4xl font-black">{{ dataPart?.name }}</h1>
         <markdown katex>{{ dataPart?.description }}</markdown>
-        <a
+        <div class="flex flex-col gap-2">
+          <a
           *ngFor="let subPart of dataPart?.subParts"
           [routerLink]="
             replace(subPart?.name + '/' + subPart?.contents[0].title)
@@ -17,6 +18,7 @@
           </span>
           {{ subPart?.name }}</a
         >
+        </div>
       </div>
     </div>
     <div
